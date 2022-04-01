@@ -22,11 +22,11 @@ function newNonPlayableCharacter(x, y) {
     }
 
     setInterval(moveCharacter, 1)
-
-    function walkEast(time) {
+    
+    function walk(nsew, time) {
         return new Promise(resolve => {
-            direction = 'east'
-            element.src = `./assets/red-character/east.gif`
+            direction = nsew
+            element.src = `./assets/red-character/${nsew}.gif`
             setTimeout(() => {
                 stop()
                 resolve()
@@ -34,41 +34,51 @@ function newNonPlayableCharacter(x, y) {
         })
     }
 
-    function walkNorth(time) {
-        return new Promise(resolve => {
-            direction = 'north'
-            element.src = `./assets/red-character/north.gif`
-            setTimeout(() => {
-                stop()
-                resolve()
-            }, time)  
-        })
-        
-    }
+    // function walkEast(time) {
+    //     return new Promise(resolve => {
+    //         direction = 'east'
+    //         element.src = `./assets/red-character/east.gif`
+    //         setTimeout(() => {
+    //             stop()
+    //             resolve()
+    //         }, time)
+    //     })
+    // }
 
-    function walkWest(time) {
-        return new Promise(resolve => {
-            direction = 'west'
-            element.src = `./assets/red-character/west.gif`
-            setTimeout(() => {
-                stop()
-                resolve()
-            }, time) 
-        })
-        
-    }
+    // function walkNorth(time) {
+    //     return new Promise(resolve => {
+    //         direction = 'north'
+    //         element.src = `./assets/red-character/north.gif`
+    //         setTimeout(() => {
+    //             stop()
+    //             resolve()
+    //         }, time)  
+    //     })
+    // }
 
-    function walkSouth(time) {
-        return new Promise(resolve => {
-            direction = 'south'
-            element.src = `./assets/red-character/south.gif`
-            setTimeout(() => {
-                stop()
-                resolve()
-            }, time)
-        })
+    // function walkWest(time) {
+    //     return new Promise(resolve => {
+    //         direction = 'west'
+    //         element.src = `./assets/red-character/west.gif`
+    //         setTimeout(() => {
+    //             stop()
+    //             resolve()
+    //         }, time) 
+    //     })
         
-    }
+    // }
+
+    // function walkSouth(time) {
+    //     return new Promise(resolve => {
+    //         direction = 'south'
+    //         element.src = `./assets/red-character/south.gif`
+    //         setTimeout(() => {
+    //             stop()
+    //             resolve()
+    //         }, time)
+    //     })
+        
+    // }
 
     function stop() {
         direction = null
@@ -77,10 +87,11 @@ function newNonPlayableCharacter(x, y) {
 
     return {
         element: element,
-        walkWest: walkWest,
-        walkNorth: walkNorth,
-        walkEast: walkEast,
-        walkSouth: walkSouth,
+        walk: walk,
+        // walkWest: walkWest,
+        // walkNorth: walkNorth,
+        // walkEast: walkEast,
+        // walkSouth: walkSouth,
         stop: stop
     }
 }
